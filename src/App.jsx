@@ -12,9 +12,9 @@ export default function App() {
       {/* CURSOR */}
       <Cursor />
 
-      {/* BACKGROUND AMBIENT LIGHTS */}
-      <div className="pointer-events-none absolute -top-40 -left-40 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[160px]" />
-      <div className="pointer-events-none absolute bottom-0 -right-40 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[160px]" />
+      {/* AMBIENT BACKGROUND LIGHTS */}
+      <div className="pointer-events-none absolute -top-40 -left-40 w-[520px] h-[520px] bg-cyan-500/10 rounded-full blur-[160px]" />
+      <div className="pointer-events-none absolute bottom-0 -right-40 w-[520px] h-[520px] bg-indigo-500/10 rounded-full blur-[160px]" />
 
       {/* HERO */}
       <section className="relative flex items-center min-h-screen px-6 md:px-24">
@@ -25,18 +25,9 @@ export default function App() {
           transition={{ duration: 0.8 }}
           className="relative z-10 max-w-3xl"
         >
-         <h1
-  className="
-    text-5xl md:text-7xl
-    font-bold
-    leading-[1.35]
-    pb-2
-    bg-gradient-to-r from-slate-100 via-cyan-300 to-slate-100
-    bg-clip-text text-transparent
-  "
->
-  Mayank Verma
-</h1>
+          <h1 className="text-5xl md:text-7xl font-bold leading-[1.35] pb-2 bg-gradient-to-r from-slate-100 via-cyan-300 to-slate-100 bg-clip-text text-transparent">
+            Mayank Verma
+          </h1>
 
           <p className="mt-4 text-xl text-cyan-400">
             Software Developer • Web • AI
@@ -92,75 +83,77 @@ export default function App() {
       </section>
 
       {/* SKILLS */}
-<section className="px-6 md:px-24 py-28 bg-[#0f141a]">
-  <motion.div
-    variants={fadeUp}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-    className="max-w-6xl mx-auto"
-  >
-    <h2 className="text-3xl font-semibold text-white md:text-4xl mb-14">
-      Skills & Tools
-    </h2>
-
-    <div className="grid gap-8 md:grid-cols-3">
-      {[
-        {
-          title: "Frontend",
-          desc: "Building responsive and interactive user interfaces",
-          items: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
-        },
-        {
-          title: "Backend & Logic",
-          desc: "Problem solving and application logic",
-          items: ["Python", "DSA", "OOP", "AI Concepts"],
-        },
-        {
-          title: "Tools & Workflow",
-          desc: "Development tools and best practices",
-          items: ["Git", "GitHub", "VS Code", "Linux", "Debugging"],
-        },
-      ].map((group) => (
+      <section className="px-6 md:px-24 py-28 bg-[#0f141a]">
         <motion.div
-          key={group.title}
-          whileHover={{ y: -4, scale: 1.02 }}
-          transition={{ type: "spring", stiffness: 200, damping: 22 }}
-          className="p-8 rounded-2xl border border-slate-800 bg-[#0b0f14]
-          hover:border-cyan-400/30
-          hover:shadow-[0_10px_30px_rgba(0,0,0,0.45)]
-          transition"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-6xl mx-auto"
         >
-          <h3 className="mb-2 text-xl font-semibold text-cyan-300">
-            {group.title}
-          </h3>
+          <h2 className="text-3xl font-semibold text-white mb-14 md:text-4xl">
+            Skills & Tools
+          </h2>
 
-          <p className="mb-6 text-sm text-slate-400">
-            {group.desc}
-          </p>
-
-          <div className="flex flex-wrap gap-3">
-            {group.items.map((item) => (
-              <span
-                key={item}
-                className="px-4 py-2 text-sm transition border rounded-full border-slate-700 text-slate-300 hover:border-cyan-400/40"
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              {
+                title: "Frontend",
+                desc: "Building responsive and interactive user interfaces",
+                items: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
+              },
+              {
+                title: "Backend & Logic",
+                desc: "Problem solving and application logic",
+                items: ["Python", "DSA", "OOP", "AI Concepts"],
+              },
+              {
+                title: "Tools & Workflow",
+                desc: "Development tools and best practices",
+                items: ["Git", "GitHub", "VS Code", "Linux", "Debugging"],
+              },
+            ].map((group) => (
+              <motion.div
+                key={group.title}
+                whileHover={{ y: -4, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200, damping: 22 }}
+                className="relative group p-8 rounded-2xl border border-slate-800 bg-[#0b0f14]
+                transition-all duration-300 hover:border-cyan-400/40
+                hover:shadow-[0_0_40px_rgba(34,211,238,0.15)]"
               >
-                {item}
-              </span>
+                {/* glow */}
+                <div className="absolute inset-0 transition opacity-0 rounded-2xl group-hover:opacity-100 bg-gradient-to-br from-cyan-400/10 to-transparent" />
+
+                {/* content */}
+                <div className="relative z-10">
+                  <h3 className="mb-2 text-xl font-semibold text-cyan-300">
+                    {group.title}
+                  </h3>
+
+                  <p className="mb-6 text-sm text-slate-400">
+                    {group.desc}
+                  </p>
+
+                  <div className="flex flex-wrap gap-3">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="px-4 py-2 text-sm transition border rounded-full border-slate-700 text-slate-300 hover:border-cyan-400/40"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
-      ))}
-    </div>
-  </motion.div>
-</section>
+      </section>
 
       {/* PROJECTS */}
-      <section
-        id="projects"
-        className="max-w-6xl px-6 mx-auto md:px-24 py-28"
-      >
+      <section id="projects" className="max-w-6xl px-6 mx-auto md:px-24 py-28">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -194,15 +187,19 @@ export default function App() {
                 key={p.title}
                 whileHover={{ y: -4, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 200, damping: 22 }}
-                className="p-6 rounded-2xl border border-slate-800 bg-[#070707]
-                hover:shadow-[0_10px_30px_rgba(0,0,0,0.4)]
-                hover:border-cyan-400/30 transition"
+                className="relative group p-6 rounded-2xl border border-slate-800 bg-[#070707]
+                transition-all duration-300 hover:border-cyan-400/40
+                hover:shadow-[0_0_40px_rgba(34,211,238,0.15)]"
               >
-                <h3 className="mb-2 text-xl font-semibold text-white">
-                  {p.title}
-                </h3>
-                <p className="mb-4 text-slate-400">{p.desc}</p>
-                <span className="text-sm text-cyan-400">{p.tech}</span>
+                <div className="absolute inset-0 transition opacity-0 rounded-2xl group-hover:opacity-100 bg-gradient-to-br from-cyan-400/10 to-transparent" />
+
+                <div className="relative z-10">
+                  <h3 className="mb-2 text-xl font-semibold text-white">
+                    {p.title}
+                  </h3>
+                  <p className="mb-4 text-slate-400">{p.desc}</p>
+                  <span className="text-sm text-cyan-400">{p.tech}</span>
+                </div>
               </motion.div>
             ))}
           </div>
